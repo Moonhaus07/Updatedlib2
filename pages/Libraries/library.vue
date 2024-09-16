@@ -1,122 +1,85 @@
 <template>
-  <div>
+  <div class="bg-white">
     <header class="py-8 px-4 md:px-16">
       <div class="container mx-auto flex justify-between items-center">
-        <img src="../../img/LendCash_Logo-removebg-preview.png" class="w-20" alt="logo">
-        <!-- <h1 class="text-3xl font-bold text-gray-800">LendCash</h1> -->
+        <img src="../../img/LendCash_Logo-removebg-preview.png" class="w-20" alt="logo" />
       </div>
     </header>
   </div>
 
-  <div class="container">
-    <!-- Create button aligned to the top-right -->
-    <div class="header">
-      <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-green-900">Create</button>
+  <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+    <div class="items-start justify-between md:flex">
+      <div class="max-w-lg">
+        <h3 class="text-gray-800 text-xl font-bold sm:text-2xl">LIBRARIES</h3>
+      </div>
     </div>
 
-    <!-- Search bar centered under the create button -->
-    <div class="search-bar">
-      <input
-        type="text"
-        placeholder="Search..."
-        v-model="searchQuery"
-        @input="filterData"/>
-    </div>
+    <!-- Table for Employees and Customers with action buttons -->
+    <div class="mt-12 relative h-max overflow-auto">
+      <table class="w-full table-auto text-sm text-left">
+        <thead class="text-gray-600 font-medium border-b">
+          <tr>
+            <th class="py-3 pr-6">Categories</th>
+            <th class="py-3 pr-6">View</th>
+            <th class="py-3 pr-6">Update</th>
+            <th class="py-3 pr-6">Delete</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 divide-y">
+          <!-- Employees Row -->
+          <tr>
+            <td class="pr-6 py-4 whitespace-nowrap">Employees</td>
+            <td class="pr-6 py-4 whitespace-nowrap">
+              <button @click="viewEmployees" class="py-1.5 px-3 bg-gray-200 hover:bg-gray-300 rounded"><a href="EmployeeView">View</a></button>
+            </td>
+            <td class="pr-6 py-4 whitespace-nowrap">
+              <button @click="updateEmployees" class="py-1.5 px-3 bg-blue-200 hover:bg-blue-300 rounded">Update</button>
+            </td>
+            <td class="pr-6 py-4 whitespace-nowrap">
+              <button @click="deleteEmployees" class="py-1.5 px-3 bg-red-200 hover:bg-red-300 rounded">Delete</button>
+            </td>
+          </tr>
 
-    <!-- Section to display filtered data with action buttons -->
-    <div class="data-section">
-      <div class="data-content">
-        <p v-if="filteredData.length">Results for: {{ searchQuery }}</p>
-        <p v-else>No matching data found.</p>
-      </div>
-
-      <!-- Buttons (View, Update, Delete) aligned to the top-right of the data section -->
-      <div class="action-buttons">
-        <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-green-900">View</button>
-        <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-green-900">Update</button>
-        <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-green-900">Delete</button>
-      </div>
+          <!-- Customers Row -->
+          <tr>
+            <td class="pr-6 py-4 whitespace-nowrap">Customers</td>
+            <td class="pr-6 py-4 whitespace-nowrap">
+              <button @click="viewCustomers" class="py-1.5 px-3 bg-gray-200 hover:bg-gray-300 rounded"><a href="CustomerView">View</a></button>
+            </td>
+            <td class="pr-6 py-4 whitespace-nowrap">
+              <button @click="updateCustomers" class="py-1.5 px-3 bg-blue-200 hover:bg-blue-300 rounded">Update</button>
+            </td>
+            <td class="pr-6 py-4 whitespace-nowrap">
+              <button @click="deleteCustomers" class="py-1.5 px-3 bg-red-200 hover:bg-red-300 rounded">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      searchQuery: '',
-      items: [
-          {  },
-          {  },
-          {  },
-      ],
-      filteredData: []
-    };
-  },
-  mounted() {
-    this.filteredData = this.items; // Initialize with all items
-  },
   methods: {
-    filterData() {
-      this.filteredData = this.items.filter(item =>
-        item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
+    viewEmployees() {
+      console.log("Viewing Employees");
     },
-  },
+    updateEmployees() {
+      console.log("Updating Employees");
+    },
+    deleteEmployees() {
+      console.log("Deleting Employees");
+    },
+    viewCustomers() {
+      console.log("Viewing Customers");
+    },
+    updateCustomers() {
+      console.log("Updating Customers");
+    },
+    deleteCustomers() {
+      console.log("Deleting Customers");
+    }
+  }
 };
-
-
-
-
 </script>
-
-<style scoped>
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end; /* Align the create button to the right */
-  margin-bottom: 20px;
-}
-
-.create-btn {
-  padding: 10px 20px;
-}
-
-.search-bar {
-  display: flex;
-  justify-content: center; /* Center the search bar */
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  width: 300px;
-  padding: 10px;
-  border: 2px solid black;
-}
-
-.data-section {
-  border: 1px solid #ddd;
-  padding: 20px;
-  position: relative;
-}
-
-.data-content {
-  margin-bottom: 20px;
-}
-
-.action-buttons {
-  position: absolute;
-  top: 10px;
-  right: 10px; /* Align buttons to the top-right */
-}
-
-.action-buttons button {
-  margin-left: 10px;
-  padding: 5px 10px;
-}
-</style>
