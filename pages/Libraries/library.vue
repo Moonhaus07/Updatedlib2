@@ -33,7 +33,7 @@
               <button @click="viewEmployees" class="py-1.5 px-3 bg-gray-200 hover:bg-gray-300 rounded"><a href="EmployeeView">View</a></button>
             </td>
             <td class="pr-6 py-4 whitespace-nowrap">
-              <button @click="updateEmployees" class="py-1.5 px-3 bg-blue-200 hover:bg-blue-300 rounded">Update</button>
+              <button @click="updateEmployees" class="py-1.5 px-3 bg-blue-200 hover:bg-blue-300 rounded"><a href="EmployeeUpdate">Update</a></button>
             </td>
             <td class="pr-6 py-4 whitespace-nowrap">
               <button @click="deleteEmployees" class="py-1.5 px-3 bg-red-200 hover:bg-red-300 rounded">Delete</button>
@@ -47,7 +47,7 @@
               <button @click="viewCustomers" class="py-1.5 px-3 bg-gray-200 hover:bg-gray-300 rounded"><a href="CustomerView">View</a></button>
             </td>
             <td class="pr-6 py-4 whitespace-nowrap">
-              <button @click="updateCustomers" class="py-1.5 px-3 bg-blue-200 hover:bg-blue-300 rounded">Update</button>
+              <button @click="updateCustomers" class="py-1.5 px-3 bg-blue-200 hover:bg-blue-300 rounded"><a href="CustomerUpdate">Update</a></button>
             </td>
             <td class="pr-6 py-4 whitespace-nowrap">
               <button @click="deleteCustomers" class="py-1.5 px-3 bg-red-200 hover:bg-red-300 rounded">Delete</button>
